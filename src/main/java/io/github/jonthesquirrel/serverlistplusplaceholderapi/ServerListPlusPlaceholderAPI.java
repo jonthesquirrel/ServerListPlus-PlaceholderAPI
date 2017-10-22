@@ -25,12 +25,12 @@ public class ServerListPlusPlaceholderAPI extends JavaPlugin {
                     @Override
                     public Object next() {
                         final Integer limit = matcher.group(1) == null ? Integer.MAX_VALUE : Integer.parseInt(matcher.group(1));
-                        final String placeholder = matcher.group(2) == null ? "" : matcher.group(2).replaceAll("[{}]", "%");
+                        final String format = matcher.group(2) == null ? "" : matcher.group(2);
                         final String delimiter = matcher.group(3) == null ? "" : matcher.group(3);
 
                         return Bukkit.getOnlinePlayers().stream()
                                 .limit(limit)
-                                .map(player -> PlaceholderAPI.setPlaceholders(player, placeholder))
+                                .map(player -> PlaceholderAPI.setBracketPlaceholders(player, format))
                                 .collect(Collectors.joining(delimiter));
                     }
                 });

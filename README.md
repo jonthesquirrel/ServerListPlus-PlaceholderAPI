@@ -1,2 +1,2 @@
 # ServerListPlus-PlaceholderAPI
-Adds PlaceholderAPI support to ServerListPlus on Spigot
+Adds a PlaceholderAPI placeholder to ServerListPlus

@@ -18,7 +18,7 @@
             <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
         <repository>
-            <id>local</id>
+            <id>in-project</id>
             <url>file://${project.basedir}/lib</url>
         </repository>
     </repositories>

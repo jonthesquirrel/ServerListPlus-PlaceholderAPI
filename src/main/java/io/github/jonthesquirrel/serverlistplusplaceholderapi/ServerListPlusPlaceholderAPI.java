@@ -17,18 +17,21 @@ import java.util.stream.Collectors;
 public class ServerListPlusPlaceholderAPI extends JavaPlugin {
     @Override
     public void onLoad() {
-        ReplacementManager.getDynamic().add(new PatternPlaceholder(Pattern.compile("%placeholderapi_players(?:,(\\d+))?(?:`(.*)`)(?:\\|([^%]+))?%", Pattern.MULTILINE)) {
+        ReplacementManager.getDynamic().add(new PatternPlaceholder(Pattern.compile("%placeholderapi_players(?:@(\\w+))?(?:,(\\d+))?(?:`(.*)`)(?:\\|([^%]*))?%", Pattern.MULTILINE)) {
             @Override
             public String replace(StatusResponse response, String s) {
                 final Matcher matcher = matcher(s);
                 return Patterns.replace(matcher, s, new ContinousIterator<Object>() {
                     @Override
                     public Object next() {
-                        final Integer limit = matcher.group(1) == null ? Integer.MAX_VALUE : Integer.parseInt(matcher.group(1));
-                        final String format = matcher.group(2) == null ? "" : matcher.group(2);
-                        final String delimiter = matcher.group(3) == null ? "" : matcher.group(3);
+                        final String server = matcher.group(1);
+                        final Integer limit = matcher.group(2) == null ? Integer.MAX_VALUE : Integer.parseInt(matcher.group(1));
+                        final String format = matcher.group(3) == null ? "" : matcher.group(2);
+                        final String delimiter = matcher.group(4) == null ? "" : matcher.group(3);
 
+                        //TODO bungee support
                         return Bukkit.getOnlinePlayers().stream()
+                                //TODO filter by server if server != null
                                 .limit(limit)
                                 .map(player -> PlaceholderAPI.setBracketPlaceholders(player, format))
                                 .collect(Collectors.joining(delimiter));

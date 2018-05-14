@@ -18,8 +18,8 @@
             <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
         <repository>
-            <id>in-project</id>
-            <url>file://${project.basedir}/lib</url>
+            <id>minecrell</id>
+            <url>https://repo.minecrell.net/snapshots</url>
         </repository>
     </repositories>
 
@@ -36,11 +36,18 @@
             <version>2.8.2</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Core -->
         <dependency>
             <groupId>net.minecrell</groupId>
-            <artifactId>serverlistplus</artifactId>
-            <version>3.4.7</version>
-            <scope>provided</scope>
+            <artifactId>ServerListPlus</artifactId>
+            <version>3.4.9-SNAPSHOT</version>
+        </dependency>
+        <!-- e.g. 'Bukkit', includes core -->
+        <dependency>
+            <groupId>net.minecrell</groupId>
+            <artifactId>ServerListPlus</artifactId>
+            <version>3.4.9-SNAPSHOT</version>
+            <classifier>Bukkit</classifier>
         </dependency>
     </dependencies>
 

@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 public class BukkitMain extends JavaPlugin {
     @Override
     public void onLoad() {
+        //TODO deduplicate
         ReplacementManager.getDynamic().add(new PatternPlaceholder(Pattern.compile("%placeholderapi_players(?:@(\\w+))?(?:,(\\d+))?(?:`(.*)`)(?:\\|([^%]*))?%", Pattern.MULTILINE)) {
             @Override
             public String replace(StatusResponse response, String s) {
@@ -29,9 +30,8 @@ public class BukkitMain extends JavaPlugin {
                         final String format = matcher.group(3) == null ? "" : matcher.group(2);
                         final String delimiter = matcher.group(4) == null ? "" : matcher.group(3);
 
-                        //TODO bungee support
                         return Bukkit.getOnlinePlayers().stream()
-                                //TODO filter by server if server != null
+                                //@server filter has no effect on bukkit
                                 .limit(limit)
                                 .map(player -> PlaceholderAPI.setBracketPlaceholders(player, format))
                                 .collect(Collectors.joining(delimiter));

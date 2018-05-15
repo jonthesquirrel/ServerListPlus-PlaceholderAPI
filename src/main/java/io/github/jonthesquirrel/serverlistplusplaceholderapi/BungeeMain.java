@@ -26,9 +26,9 @@ public class BungeeMain extends Plugin {
                     @Override
                     public Object next() {
                         final String server = matcher.group(1);
-                        final Integer limit = matcher.group(2) == null ? Integer.MAX_VALUE : Integer.parseInt(matcher.group(1));
-                        final String format = matcher.group(3) == null ? "" : matcher.group(2);
-                        final String delimiter = matcher.group(4) == null ? "" : matcher.group(3);
+                        final Integer limit = matcher.group(2) == null ? Integer.MAX_VALUE : Integer.parseInt(matcher.group(2));
+                        final String format = matcher.group(3) == null ? "" : matcher.group(3);
+                        final String delimiter = matcher.group(4) == null ? "" : matcher.group(4);
 
                         return ProxyServer.getInstance().getPlayers().stream()
                                 .filter(player -> server == null || player.getServer().getInfo().getName().equals(server))

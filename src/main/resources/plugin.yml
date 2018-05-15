@@ -2,5 +2,5 @@ name: ServerListPlus-PlaceholderAPI
 main: io.github.jonthesquirrel.serverlistplusplaceholderapi.ServerListPlusPlaceholderAPI
 author: [jonthesquirrel]
 depend: [ServerListPlus, PlaceholderAPI]
-version: 1.1.0
+version: ${project.version}
 description: Adds a PlaceholderAPI placeholder to ServerListPlus

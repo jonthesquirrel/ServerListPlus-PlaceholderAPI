@@ -46,8 +46,8 @@ public class BungeeMain extends Plugin {
         });
     }
 
-    String placeholder(ProxiedPlayer player, String format) {
-        //TODO replace using papi through bungee messaging channel on bukkit version of this plugin
+    private String placeholder(ProxiedPlayer player, String format) {
+        //TODO replace using papi on bukkit version of this plugin through bungee messaging channel
         return format;
     }
 }

@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class ServerListPlusPlaceholderAPI extends JavaPlugin {
+public class BukkitMain extends JavaPlugin {
     @Override
     public void onLoad() {
         ReplacementManager.getDynamic().add(new PatternPlaceholder(Pattern.compile("%placeholderapi_players(?:@(\\w+))?(?:,(\\d+))?(?:`(.*)`)(?:\\|([^%]*))?%", Pattern.MULTILINE)) {

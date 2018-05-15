@@ -31,7 +31,7 @@ public class BungeeMain extends Plugin {
                         final String delimiter = matcher.group(4) == null ? "" : matcher.group(3);
 
                         return ProxyServer.getInstance().getPlayers().stream()
-                                .filter(player -> player.getServer().getInfo().getName().equals(server))
+                                .filter(player -> server == null || player.getServer().getInfo().getName().equals(server))
                                 .limit(limit)
                                 .map(player -> placeholder(player, format))
                                 .collect(Collectors.joining(delimiter));
